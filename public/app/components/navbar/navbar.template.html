@@ -1,0 +1,7 @@
+<div id="nav-container">
+    <ul id="nav">
+        <li id="nav-site-name"><a href="/">{{ $ctrl.appName }}</a></li>
+        <li class="nav-element" ng-class="{ active: $ctrl.isActive(link.href) }" ng-repeat="link in $ctrl.links">
+            <a href="/#!{{ link.href }}">{{ link.name }}</a></li>
+    </ul>
+</div>

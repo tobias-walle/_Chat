@@ -1,0 +1,23 @@
+<ul class="default-list">
+    <li class="button-list-item">
+        <button id="button-send-invitation" ng-click="$ctrl.toggleDialog()">Create Chatroom</button>
+    </li>
+    <li ng-repeat="chatroom in $ctrl.getChatrooms()"
+        class="default-list-item chatroom-item selectable"
+        ng-class="{ active: $ctrl.isSelected(chatroom) }"
+        ng-click="$ctrl.select(chatroom)">
+        <p class="primary-text">{{ chatroom.__name }}</p>
+        <p class="secondary-text">{{ chatroom.__latest_message != undefined ? chatroom.__latest_message.body : "No messages" }}</p>
+    </li>
+</ul>
+<popup-window show="$ctrl.visibleDialog">
+    <div class="new-chatroom-dialog">
+        <users users-selected="users" class="user-dialog-element"></users>
+        <div class="new-chatroom-dialog-controls-wrapper">
+            <div class="new-chatroom-dialog-controls">
+                <button ng-click="$ctrl.toggleDialog()">Cancel</button>
+                <button ng-click="$ctrl.inviteButtonClicked(users)">Invite</button>
+            </div>
+        </div>
+    </div>
+</popup-window>

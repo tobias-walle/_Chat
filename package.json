@@ -1,0 +1,29 @@
+{
+  "name": "NodeTest",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-animate": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angularjs-scroll-glue": "^2.0.7",
+    "body-parser": "~1.15.1",
+    "connect-mongo": "^1.2.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.4.1",
+    "errorhandler": "latest",
+    "express": "~4.13.4",
+    "express-session": "latest",
+    "jquery": "^3.0.0",
+    "mongodb": "latest",
+    "mongoose": "latest",
+    "morgan": "~1.7.0",
+    "ngstorage": "^0.3.10",
+    "node-sass-middleware": "0.8.0",
+    "serve-favicon": "~2.3.0"
+  }
+}

@@ -1,0 +1,24 @@
+@mixin all-transform($function)
+  -ms-transform: $function
+  -webkit-transform: $function
+  transform: $function
+
+@mixin box-sizing($parameter...)
+  box-sizing: $parameter
+  -moz-box-sizing: $parameter
+  -webkit-box-sizing: $parameter
+
+@mixin box-shadow($params...)
+  -webkit-box-shadow: $params
+  -moz-box-shadow: $params
+  box-shadow: $params
+
+@mixin animation($params...)
+  -webkit-animation: $params
+  -moz-animation: $params
+  animation: $params
+
+@mixin transition($params...)
+  -webkit-transition: $params
+  -moz-transition: $params
+  transition: $params

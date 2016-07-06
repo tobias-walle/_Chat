@@ -1,0 +1,6 @@
+<div class="popup-container-wrapper" ng-class="{ active: $ctrl.show }">
+    <div class="popup-overlay" ng-click="$ctrl.toggleWindow()"></div>
+    <div class="popup-container">
+        <ng-transclude class="popup-content"/>
+    </div>
+</div>

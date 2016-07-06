@@ -1,0 +1,13 @@
+<div class="user-id-wrapper">
+    <span>Your id is:</span>
+    <span class="user-id">{{ $ctrl.currentUser._id }}</span>
+</div>
+<div class="form-container"><label class="filter-form">Filter:<input ng-model="$ctrl.query"></label></div>
+<ul class="default-list users-list">
+    <li ng-repeat="user in $root.$storage.users | filter:$ctrl.query | excludeUser:$ctrl.currentUser | orderBy:$ctrl.orderProp"
+        class="default-list-item selectable" ng-click="$ctrl.toggleSelect(user)"
+        ng-class="{ active: $ctrl.isSelected(user) }">
+        <p class="primary-text">{{ user.name }}</p>
+        <p class="secondary-text">User id: {{ user._id }}</p>
+    </li>
+</ul>
