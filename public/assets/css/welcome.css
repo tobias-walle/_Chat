@@ -1,0 +1,38 @@
+#welcome-container {
+  position: fixed;
+  top: 50%;
+  -ms-transform: translate(-50%, -100%);
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  left: 50%;
+  width: 25em;
+  text-align: center; }
+
+#welcome-message {
+  font-size: 2em;
+  margin-bottom: .7em; }
+
+input {
+  display: block;
+  padding: .1em;
+  font-size: 3em;
+  text-align: center;
+  background: #f7f7f7;
+  border: none;
+  border-bottom: solid black 1px;
+  width: 10em; }
+
+input:focus {
+  outline: none; }
+
+label {
+  display: inline-block;
+  font-size: .8em;
+  text-align: left;
+  margin-bottom: 1em; }
+
+button {
+  font-size: 1.1em;
+  padding: .5em .8em; }
+
+/*# sourceMappingURL=welcome.css.map */

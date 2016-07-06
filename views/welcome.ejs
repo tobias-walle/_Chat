@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to _Chat</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/welcome.css"/>
+</head>
+<div id="welcome-container">
+    <p id="welcome-message">Welcome to _Chat</p>
+    <form action="/api/users" method="post">
+        <div id="welcome-input-container">
+            <label><input type="text" name="username" id="input-username">Username</label>
+        </div>
+        <button type="submit">Continue</button>
+    </form>
+</div>
+</html>

@@ -1,0 +1,45 @@
+@import "../modules/all"
+@import "../config/all"
+
+.popup-overlay
+  @include transition(all linear $animation-very-short)
+  z-index: 9999
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: rgba(0, 0, 0, 0.28)
+
+.popup-container
+  z-index: 10000
+  position: fixed
+  background: white
+  max-height: 80%
+  margin: 1em
+  top: 50%
+  left: 50%
+  @include box-sizing(border-box)
+  @include all-transform(translate(-50%, -50%))
+  border-radius: $dimen-border-radius
+  overflow: hidden
+  @include material-shadow(2)
+
+.popup-container-wrapper, .popup-container-wrapper > *
+  @include transition(opacity linear $animation-short forwards)
+  opacity: 0
+  overflow: hidden
+  height: 0
+
+.popup-container-wrapper, .popup-overlay, .popup-container
+
+.popup-container-wrapper, .popup-container-wrapper.active > *
+  opacity: 1
+  height: auto
+
+
+.popup-content
+  display: block
+  position: relative
+  max-height: 100%
+  @include box-sizing(border-box)

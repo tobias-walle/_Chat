@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="chatApp">
+<head>
+    <meta charset="utf-8">
+    <title>_Chat</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="/favicon-144.png">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="assets/css/app.css"/>
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,300,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="dependencies/angular.min.js"></script>
+    <script type="text/javascript" src="dependencies/angular-route.min.js"></script>
+    <script type="text/javascript" src="dependencies/angular-animate.min.js"></script>
+    <script type="text/javascript" src="dependencies/jquery.min.js"></script>
+    <script type="text/javascript" src="dependencies/scrollglue.js"></script>
+    <script type="text/javascript" src="dependencies/ngstorage.min.js"></script>
+
+    <script type="text/javascript" src="app/app.module.js"></script>
+    <script type="text/javascript" src="app/app.config.js"></script>
+
+    <script type="text/javascript" src="app/components/navbar/navbar.module.js"></script>
+    <script type="text/javascript" src="app/components/navbar/navbar.component.js"></script>
+
+    <script type="text/javascript" src="app/components/users/users.module.js"></script>
+    <script type="text/javascript" src="app/components/users/users.component.js"></script>
+
+    <script type="text/javascript" src="app/components/private-chat/private-chat.module.js"></script>
+    <script type="text/javascript" src="app/components/private-chat/private-chat.component.js"></script>
+
+    <script type="text/javascript" src="app/components/messages/messages.module.js"></script>
+    <script type="text/javascript" src="app/components/messages/messages.component.js"></script>
+
+    <script type="text/javascript" src="app/components/chatrooms/chatrooms.module.js"></script>
+    <script type="text/javascript" src="app/components/chatrooms/chatrooms.component.js"></script>
+
+    <script type="text/javascript" src="app/components/popup-window/popup-window.module.js"></script>
+    <script type="text/javascript" src="app/components/popup-window/popup-window.component.js"></script>
+</head>
+<body>
+<div id="app">
+    <header>
+        <navbar></navbar>
+    </header>
+    <div id="content-box-wrapper">
+        <div id="content-box">
+            <div ng-view id="content"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

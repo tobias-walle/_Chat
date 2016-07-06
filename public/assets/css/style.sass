@@ -1,0 +1,105 @@
+@import "partials/navbar"
+@import "modules/shadows"
+@import "modules/cross_browser"
+
+*
+  font-family: 'Source Sans Pro', sans-serif
+  color: $color-text-dark-primary
+  margin: 0
+  padding: 0
+
+body
+  font-size: 16px
+
+input
+  @include transition(background linear $animation-medium)
+  @include transition(border linear $animation-short)
+  border: none
+  padding: .1em .2em
+  background: $color-background-light-2
+  border-bottom: $color-element-dark-active solid 1px
+
+input:disabled
+  background: $color-background-light-1
+  border-bottom: $color-element-dark-active solid 1px
+
+input:focus
+  background: $color-background-light-1
+  border-bottom: $color-element-dark-inactive solid 1px
+  border-bottom: $color-primary solid 1px
+  outline: none
+
+button
+  @include transition(background linear $animation-short)
+  cursor: pointer
+  border: none
+  background: $color-primary
+  min-height: $dimen-button-min-height
+  color: $color-text-light-primary
+  border-radius: $dimen-border-radius
+  text-transform: uppercase
+  font-weight: bold
+  padding: 3px
+  min-width: 75px
+  font-size: .8em
+
+button:hover
+  background: $color-primary-dark
+
+button:disabled
+  background: $color-element-dark-inactive
+
+.default-list
+  list-style: none
+
+.default-list-item
+  @include transition(all linear $animation-very-short)
+  padding: .4em
+  overflow: hidden
+  height: 50%
+  border-left: solid 4px rgba(0,0,0,0)
+  background: $color-background-light-2
+  border-bottom: $color-element-dark-inactive solid 1px
+  border-collapse: collapse
+
+.default-list-item:first-child
+  border-top: $color-element-dark-inactive solid 1px
+
+.default-list-item.selectable:hover
+  background: $color-background-light-1
+  cursor: pointer
+
+.default-list-item.selectable.active
+  border-left: solid 4px $color-primary
+  background: $color-background-light-0
+
+.default-list-item .primary-text
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+  font-size: 1em
+
+.default-list-item .secondary-text
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+  font-size: .8em
+  color: $color-text-dark-secondary
+
+.primary-text
+  font-size: 1em
+  color: $color-text-dark-primary
+
+.secondary-text
+  font-size: .8em
+  color: $color-text-dark-secondary
+
+.form-container
+  display: block
+  padding: .8em
+
+.filter-form input
+  width: 20em
+  font-size: 1em
+  margin-left: .2em
+

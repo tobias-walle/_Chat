@@ -1,0 +1,47 @@
+@import "config/all"
+@import "modules/cross_browser"
+@import "partials/private"
+@import "partials/popup-window"
+@import "partials/popup-window-new-chatroom"
+
+html, body, #app
+  width: 100%
+  height: 100%
+  overflow: hidden
+  padding: 0
+  margin: 0
+
+#app
+  min-width: 650px
+  display: flex
+  flex-direction: column
+  position: absolute
+  background: $color-background-light-3
+  top: 0
+  left: 0
+
+#content-box-wrapper
+  display: flex
+  flex-direction: column
+  padding: 18px 0
+  width: 100%
+  overflow: hidden
+  flex: 1
+
+#content-box
+  background: $color-background-light-0
+  @include material-shadow(0)
+  overflow: hidden
+  width: 100%
+  max-width: $dimen-width-content
+  margin: auto
+  flex: 1
+  border-radius: $dimen-border-radius
+  @include box-sizing(border-box)
+
+#content
+  top: 0
+  left: 0
+  height: 100%
+
+

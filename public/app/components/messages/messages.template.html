@@ -1,0 +1,22 @@
+<div id="container-messages" scroll-glue>
+    <div class="message-wrapper {{  $ctrl.isOwner(message) }}" ng-repeat="message in $ctrl.getMessages()[$ctrl.chatroomId]"
+         ng-mouseover="hovered = true"
+         ng-mouseleave="hovered = false">
+        <div class="message {{ $ctrl.isOwner(message) }}">
+            <span class="message-text secondary-text username" ng-if=" $ctrl.isOwner(message) == 'other' ">{{ $ctrl.findUser(message.userId).name }}</span>
+            <span class="message-text primary-text">{{ message.body }}</span>
+        </div>
+        <div class="message-meta-wrapper">
+            <div class="message-meta {{  $ctrl.isOwner(message) }}">
+                <span class="message-text secondary-text"
+                      ng-hide="!hovered">{{ message.created | date:'shortTime' }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="container-chat-controls">
+    <form>
+        <input type="text" id="input-message" autocomplete="off" ng-disabled="!$ctrl.chatroomId">
+        <button id="button-send-message" ng-click="$ctrl.send()" ng-disabled="!$ctrl.chatroomId">SEND</button>
+    </form>
+</div>
