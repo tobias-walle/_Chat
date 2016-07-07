@@ -1,0 +1,37 @@
+@import "../modules/all"
+@import "../config/all"
+
+.default-list-item.selectable.chatroom-item
+  border-left: solid 4px rgba(0, 0, 0, 0)
+  background: $color-background-light-2
+
+.default-list-item.selectable.chatroom-item:hover
+  background: $color-background-light-1
+
+.default-list-item.selectable.chatroom-item.active
+  border-left: solid 4px $color-primary
+  background: $color-background-light-0
+
+.button-list-item
+  width: 100%
+  padding: 24px 16px
+  @include box-sizing(border-box)
+  overflow: hidden
+  border-bottom: $color-element-dark-inactive solid 1px
+
+#button-send-invitation
+  width: 100%
+  margin: 0
+
+#container-chatrooms::-webkit-scrollbar
+  display: none
+
+.new-chatroom-dialog-controls
+  background: $color-background-light-0
+  position: relative
+  bottom: 0
+  left: 0
+  right: 0
+  @include box-shadow(0px 0px 21px -3px rgba(0, 0, 0, 0.75))
+  padding: 10px
+  text-align: right

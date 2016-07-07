@@ -1,7 +1,7 @@
 var express = require('express');
-var chatrooms = require('../api/chatrooms');
-var messages = require('../api/messages');
-var users = require('../api/users');
+var chatrooms = require('./api/chatrooms');
+var messages = require('./api/messages');
+var users = require('./api/users');
 var router = express.Router();
 
 router.use("/users", users);

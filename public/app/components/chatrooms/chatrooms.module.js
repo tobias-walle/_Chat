@@ -1,1 +1,5 @@
-angular.module("chatrooms", ["popupWindow", "messages", "ngStorage"]);
+angular.module("chatrooms", [
+    "popupWindow", 
+    "messages", 
+    "ngStorage",
+]);

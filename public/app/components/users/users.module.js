@@ -1,5 +1,6 @@
 angular.module("users", ["ngStorage"])
     .filter("excludeUser", function() {
+        // Filter out a specific user, based on the id.
         return function (array, user) {
             if (user != undefined && array != undefined) {
                 var res = [];

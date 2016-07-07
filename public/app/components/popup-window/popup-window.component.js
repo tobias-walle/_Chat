@@ -10,13 +10,24 @@ angular.module("popupWindow")
             if (self.show == undefined) {
                 self.show = false;
             }
-            
+
+            /**
+             * Hide the popup
+             */
             self.hideWindow = function () {
                 self.show = false;
             };
+
+            /**
+             * Show the popup
+             */
             self.showWindow = function () {
                 self.show = true;
             };
+
+            /**
+             * Toggle the popup
+             */
             self.toggleWindow = function () {
                 if (self.show) {
                     self.hideWindow();

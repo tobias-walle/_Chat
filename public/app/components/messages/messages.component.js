@@ -4,29 +4,48 @@ angular.module("messages")
     .factory("messageFactory", function ($window, $rootScope, $http, $timeout, $localStorage) {
         var self = {};
         var observerCallbacks = [];
-        self.registerObserverCallback = function (callback) {
-            observerCallbacks.push(callback);
-        };
-        function notifyMessagesChanged() {
-            observerCallbacks.forEach(function (callback) {
-                callback();
-            })
-        }
+
         $rootScope.$storage = $localStorage.$default({
             messages: {}
         });
-        
-        self.getMessages = function() {
-            return $rootScope.$storage.messages;
-        };
-        
 
         $rootScope.$watch(function() {
             return angular.toJson($rootScope.$storage.messages);
         }, function() {
             notifyMessagesChanged();
         });
-        
+
+        /**
+         * Register a new Callback
+         * @param callback A callback which triggers when new messages arrive
+         */
+        self.registerObserverCallback = function (callback) {
+            observerCallbacks.push(callback);
+        };
+
+        /**
+         * Call all callbacks
+         */
+        function notifyMessagesChanged() {
+            observerCallbacks.forEach(function (callback) {
+                callback();
+            })
+        }
+
+        /**
+         * Get all messages from the storage
+         * @returns {$rootScope.$storage.messages|{}}
+         */
+        self.getMessages = function() {
+            return $rootScope.$storage.messages;
+        };
+
+        /**
+         * Semd a mew Message
+         * @param text message text
+         * @param chatroomId Chatroom
+         * @param callback Callback
+         */
         self.sendMessage = function (text, chatroomId, callback) {
             if (text > "") {
                 $http.post("/api/messages/", {
@@ -40,6 +59,11 @@ angular.module("messages")
             }
         };
 
+        /**
+         * Add an array of the messages to an chatroom.
+         * @param chatroomId The chatroom
+         * @param newMessages The messages
+         */
         function addMessagesToChatroom(chatroomId, newMessages) {
             if ($rootScope.$storage.messages[chatroomId] == undefined) {
                 $rootScope.$storage.messages[chatroomId] = [];
@@ -55,6 +79,9 @@ angular.module("messages")
             });
         }
 
+        /**
+         * Fetch the messages from the server.
+         */
         self.fetch = function() {
             $http.get("/api/messages/query/").then(function (response) {
                 var groups = angular.fromJson(response.data);
@@ -70,6 +97,7 @@ angular.module("messages")
             })
         };
 
+        // Initial Fetch
         self.fetch();
         // Update every second
         (function update() {
@@ -88,14 +116,19 @@ angular.module("messages")
             
             self.findUser = userFactory.findUser;
             self.getMessages = messageFactory.getMessages
-            
-            // Get ChatroomId by attribute
+
+            /**
+             * Listen to changes of the chatroomId
+             */
             $attrs.$observe('chatroomid', function (value) {
                 self.chatroomId = value;
-                console.log(value)
             });
 
+            
             var messageInput = $("#input-message");
+            /**
+             * Send a new Message
+             */
             self.send = function () {
                 if (self.chatroomId != undefined) {
                     messageFactory.sendMessage(messageInput.val(), self.chatroomId, function () {
@@ -105,13 +138,19 @@ angular.module("messages")
                 }
             };
 
+            // Update the current userId
             function updateCurrentUserId() {
                 $http.get("/api/users/current").then(function (response) {
                     var user = response.data;
                     self.currentUserId = user._id;
                 });
             }
-            
+
+            /**
+             * Check if user is owned by the current user.
+             * @param message The message object
+             * @returns {string} 'own' if owner, else 'other'
+             */
             self.isOwner = function(message) {
                 return self.currentUserId == message.userId ? "own" : "other"
             };

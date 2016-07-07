@@ -1,4 +1,4 @@
-var chatApp = angular.module("chatApp", [
+angular.module("chatApp", [
     "ngRoute",
     "navbar",
     "users",

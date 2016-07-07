@@ -24,6 +24,6 @@
     "morgan": "~1.7.0",
     "ngstorage": "^0.3.10",
     "node-sass-middleware": "0.8.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "^2.3.0"
   }
 }
