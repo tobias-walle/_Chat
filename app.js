@@ -14,6 +14,7 @@ var authenticateUser = require('./middleware/authenticate_user');
 var user = require("./model/user");
 
 var routes = require('./routes/index');
+var welcome = require('./routes/welcome');
 var dependencies = require('./routes/dependencies');
 var api = require('./routes/api');
 
@@ -27,7 +28,6 @@ if (process.env.NODE_ENV == 'development') {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', "assets", "img", 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -35,10 +35,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(require('node-sass-middleware')({
     src: path.join(__dirname, 'public'),
-    dest: path.join(__dirname, 'public'),
+    dest: path.join(__dirname, path.join('public', 'compiled')),
     indentedSyntax: true,
     sourceMap: true
 }));
+// Redirect every style request to the compiled folder
+app.use("public/asserts/css/", express.static(path.join(__dirname, 'public', 'compiled', 'asserts', 'css')));
 app.use(session({
     cookie: {
         maxAge: 100 * 365 * 24 * 60 * 60 * 1000 // Set the cookie expiry to about 100 years
@@ -55,9 +57,7 @@ app.use("/dependencies", dependencies);  // Load static dependencies
 
 app.use(authenticateUser("/welcome", ["/api/users"]));
 
-app.use('/welcome', function (req, res) {
-    res.render('welcome')
-});
+app.use('/welcome', welcome);
 // Routes that require user authentication
 app.use('/api', api);
 app.use('/', routes);

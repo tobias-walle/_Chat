@@ -2,7 +2,7 @@
     <span>Your id is:</span>
     <span class="user-id">{{ $ctrl.currentUser._id }}</span>
 </div>
-<div class="form-container"><label class="filter-form">Filter:<input ng-model="$ctrl.query"></label></div>
+<div class="user-filter-container"><label class="filter-form">Filter:<input ng-model="$ctrl.query"></label></div>
 <ul class="default-list users-list">
     <li ng-repeat="user in $root.$storage.users | filter:$ctrl.query | excludeUser:$ctrl.currentUser | orderBy:$ctrl.orderProp"
         class="default-list-item selectable" ng-click="$ctrl.toggleSelect(user)"

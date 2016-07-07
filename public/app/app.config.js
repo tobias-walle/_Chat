@@ -5,9 +5,9 @@ angular.
             $locationProvider.hashPrefix('!');
             
             $routerProvider.
-                when('/private', {
+                when('/', {
                     template: "<private-chat></private-chat>"
                 }).
-                otherwise('/private');
+                otherwise('/');
         }
     ]);

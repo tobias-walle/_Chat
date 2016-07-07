@@ -1,3 +1,8 @@
+/**
+ * Handle the user authentication
+ * @param redirect Link to redirect if no user is authenticated
+ * @param white_list Links that can be accessed without a user login
+ */
 function authenticateUser(redirect, white_list) {
     // Check if user is linked to the session
     return function(req, res, next) {

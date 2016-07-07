@@ -10,7 +10,11 @@
 
 #welcome-message {
   font-size: 2em;
-  margin-bottom: .7em; }
+  margin-bottom: .3em; }
+
+#welcome-note {
+  color: red;
+  margin-bottom: .3em; }
 
 input {
   display: block;

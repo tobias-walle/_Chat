@@ -19,6 +19,46 @@
 #nav .nav-element.active a {
   color: #D84315; }
 
+@-webkit-keyframes keyframe-update-chatroom {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF; }
+  50% {
+    opacity: 1;
+    background: #FF5722; }
+  100% {
+    background-color: #FFFFFF; } }
+
+@-moz-keyframes keyframe-update-chatroom {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF; }
+  50% {
+    opacity: 1;
+    background: #FF5722; }
+  100% {
+    background-color: #FFFFFF; } }
+
+@-o-keyframes keyframe-update-chatroom {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF; }
+  50% {
+    opacity: 1;
+    background: #FF5722; }
+  100% {
+    background-color: #FFFFFF; } }
+
+@keyframes keyframe-update-chatroom {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF; }
+  50% {
+    opacity: 1;
+    background: #FF5722; }
+  100% {
+    background-color: #FFFFFF; } }
+
 * {
   font-family: 'Source Sans Pro', sans-serif;
   color: rgba(0, 0, 0, 0.87);
@@ -98,34 +138,18 @@ button:disabled {
   border-left: solid 4px #FF5722;
   background: #FFFFFF; }
 
-.default-list-item .primary-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 1em; }
-
-.default-list-item .secondary-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: .8em;
-  color: rgba(0, 0, 0, 0.54); }
-
 .primary-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87); }
 
 .secondary-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: .8em;
   color: rgba(0, 0, 0, 0.54); }
-
-.form-container {
-  display: block;
-  padding: .8em; }
-
-.filter-form input {
-  width: 20em;
-  font-size: 1em;
-  margin-left: .2em; }
 
 /*# sourceMappingURL=style.css.map */

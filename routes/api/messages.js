@@ -1,8 +1,8 @@
 var express = require('express');
-var message = require('../model/message');
-var chatroom = require('../model/chatroom');
-var user = require('../model/user');
-var dbHelper = require('../model/db-helper');
+var message = require('../../model/message');
+var chatroom = require('../../model/chatroom');
+var user = require('../../model/user');
+var dbHelper = require('../../model/db-helper');
 var router = express.Router();
 
 router.route("/")
@@ -38,7 +38,6 @@ router.route("/query")
         })
     })
 
-    // Delete a message
     .delete(function(req, res, next) {
         var userId = req.session.userId;
         dbHelper.deleteMessageQuery(userId, function(err, numberRemoved) {
@@ -56,7 +55,7 @@ router.route("/query")
 
 router.route("/chatroom/:chatroomId")
 
-    // Get from messages a specific chatroom
+    // Get from a specific chatroom
     .get(function (req, res, next) {
         var option = req.query.option;
         var userId = req.session.userId;

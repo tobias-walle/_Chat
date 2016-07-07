@@ -1,11 +1,11 @@
 var express = require('express');
-var user = require('../model/user.js');
+var user = require('../../model/user.js');
 var router = express.Router();
 
 router.route("/")
 
+    // Get get the names of all the users
     .get(function (req, res, next) {
-        // Get all users
         user.find({}, { name: 1},
         function (err, item) {
             if (err) {
@@ -17,11 +17,11 @@ router.route("/")
         })
     })
 
-    // Post a new User or change name
+    // Post a new User or, if the user already exists, change name
     .post(function (req, res, next) {
         var username = req.body.username.trim();
         if (username.length == 0) {
-            res.redirect("/welcome");
+            res.redirect("/welcome?context=empty");
             console.error("Username cannot be empty.");
         } else {
             if (req.session.userId == undefined) {
@@ -33,7 +33,6 @@ router.route("/")
                         console.error(err.stack);
                         next(err);
                     } else {
-                        console.log("POST creating new user: " + user);
                         // Link session with user
                         req.session.userId = user._id;
                         res.redirect("/");
@@ -52,7 +51,6 @@ router.route("/")
                         console.error(err.stack);
                         next(err);
                     } else {
-                        console.log("POST updating user with id " + userId);
                         res.redirect("/");
                     }
                 })

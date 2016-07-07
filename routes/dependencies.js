@@ -12,8 +12,10 @@ var dependencies = [
     ["ngStorage.min.js", "ngstorage/ngStorage.min.js"]
 ];
 
+// Get root dir
 var appdirname = movePathUp(__dirname);
 
+// Set all the dependencies, which where previous defined
 dependencies.forEach(function(dependency) {
     router.get("/" + dependency[0], function (req, res, next) {
         var path = appdirname + "/node_modules/" + dependency[1];

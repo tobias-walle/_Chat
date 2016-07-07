@@ -2,10 +2,23 @@ var chatroom = require('./chatroom');
 var user = require('./user');
 var message = require('./message');
 
+/**
+ * Get all chatrooms of user
+ * @param userId
+ * @param callback
+ */
 function getAllChatroomsOfUser(userId, callback) {
     chatroom.find({users: {$in: [userId]}}, callback);
 }
 
+/**
+ * Get the message query, which contains all new messages, grouped by the chatroom. Format:
+ * { chatroom: [message, message, ...},
+ *   ... }
+ * 
+ * @param userId
+ * @param callback
+ */
 function getMessageQueryGroupedByChatroom(userId, callback) {
     // Get all the queried messages of the user
     console.log(userId);
@@ -40,10 +53,22 @@ function getMessageQueryGroupedByChatroom(userId, callback) {
     });
 }
 
+/**
+ * Clean the message query
+ * @param userId
+ * @param callback
+ */
 function deleteMessageQuery(userId, callback) {
     user.update({_id: userId}, {messageQuery: []}, callback);
 }
 
+/**
+ * Create a new message and send it to all the messagequeries of the user in the chatroom
+ * @param userId Author
+ * @param chatroomId Chatroom which the message is related
+ * @param body The message text
+ * @param callback
+ */
 function createAndSendToUsers(userId, chatroomId, body, callback) {
 
     // Create the message
