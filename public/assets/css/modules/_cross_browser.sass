@@ -13,6 +13,25 @@
   -moz-box-shadow: $params
   box-shadow: $params
 
+@mixin display-flex()
+  display: -webkit-box
+  display: -moz-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+
+@mixin flex-direction($params...)
+  -webkit-flex-direction: $params
+  flex-direction: $params
+
+@mixin flex-grow($params...)
+  -webkit-flex-grow: $params
+  flex-grow: $params
+
+@mixin flex($params...)
+  -webkit-flex: $params
+  flex: $params
+
 @mixin animation($params...)
   -webkit-animation: $params
   -moz-animation: $params

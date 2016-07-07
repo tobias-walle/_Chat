@@ -2,15 +2,15 @@
 @import "../config/all"
 
 .message-wrapper
-  display: flex
-  flex-direction: row
+  @include display-flex()
+  @include flex-direction(row)
   padding: .5em 1em
 
 .message-wrapper:hover
   background: $color-background-light-2
 
 .message-wrapper.own
-  flex-direction: row-reverse
+  @include flex-direction(row-reverse)
   text-align: right
 
 .message-wrapper.other
@@ -35,7 +35,7 @@
 
 .message-meta-wrapper
   position: relative
-  flex: 1
+  @include flex(1)
   margin: 0 6px
   min-height: 100%
 
@@ -57,7 +57,7 @@
   background: #a2c6fd
 
 #input-message
-  flex-grow: 1
+  @include flex-grow(1)
   padding: .5em
   font-size: 1em
   vertical-align: text-top
@@ -65,20 +65,20 @@
   @include box-sizing(border-box)
 
 #container-chat
-  display: flex
+  @include display-flex
   overflow: hidden
   @include box-sizing(border-box)
   height: 100%
 
 #messages
-  display: flex
+  @include display-flex
+  @include flex-direction(column)
   width: 100%
-  flex-direction: column
   height: 100%
 
 #container-chat-controls > form
-  display: flex
-  flex-direction: row
+  @include display-flex
+  @include flex-direction(row)
   width: 100%
   @include box-sizing(border-box)
   padding: .8em 1em

@@ -35,12 +35,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(require('node-sass-middleware')({
     src: path.join(__dirname, 'public'),
-    dest: path.join(__dirname, path.join('public', 'compiled')),
+    dest: path.join(__dirname, 'public'),
     indentedSyntax: true,
     sourceMap: true
 }));
-// Redirect every style request to the compiled folder
-app.use("public/asserts/css/", express.static(path.join(__dirname, 'public', 'compiled', 'asserts', 'css')));
 app.use(session({
     cookie: {
         maxAge: 100 * 365 * 24 * 60 * 60 * 1000 // Set the cookie expiry to about 100 years
@@ -55,7 +53,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/dependencies", dependencies);  // Load static dependencies
 
-app.use(authenticateUser("/welcome", ["/api/users"]));
+app.use(authenticateUser("/welcome", ["/api/users", "/api/users/current"]));
 
 app.use('/welcome', welcome);
 // Routes that require user authentication

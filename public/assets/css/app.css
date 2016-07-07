@@ -62,10 +62,16 @@
 
 #container-messages {
   overflow-y: scroll;
+  -webkit-flex: 1;
   flex: 1; }
 
 .message-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: row;
   flex-direction: row;
   padding: .5em 1em; }
 
@@ -73,6 +79,7 @@
   background: #F5F5F5; }
 
 .message-wrapper.own {
+  -webkit-flex-direction: row-reverse;
   flex-direction: row-reverse;
   text-align: right; }
 
@@ -100,6 +107,7 @@
 
 .message-meta-wrapper {
   position: relative;
+  -webkit-flex: 1;
   flex: 1;
   margin: 0 6px;
   min-height: 100%; }
@@ -122,6 +130,7 @@
   background: #a2c6fd; }
 
 #input-message {
+  -webkit-flex-grow: 1;
   flex-grow: 1;
   padding: .5em;
   font-size: 1em;
@@ -132,6 +141,10 @@
   -webkit-box-sizing: border-box; }
 
 #container-chat {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   overflow: hidden;
   box-sizing: border-box;
@@ -140,13 +153,23 @@
   height: 100%; }
 
 #messages {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  width: 100%;
+  -webkit-flex-direction: column;
   flex-direction: column;
+  width: 100%;
   height: 100%; }
 
 #container-chat-controls > form {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: row;
   flex-direction: row;
   width: 100%;
   box-sizing: border-box;
@@ -234,7 +257,12 @@ html, body, #app {
 
 #app {
   min-width: 650px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: column;
   flex-direction: column;
   position: absolute;
   background: #E0E0E0;
@@ -242,12 +270,18 @@ html, body, #app {
   left: 0; }
 
 #content-box-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: column;
   flex-direction: column;
+  -webkit-flex: 1;
+  flex: 1;
   padding: 18px 0;
   width: 100%;
-  overflow: hidden;
-  flex: 1; }
+  overflow: hidden; }
 
 #content-box {
   background: #FFFFFF;
@@ -258,6 +292,7 @@ html, body, #app {
   width: 100%;
   max-width: 1000px;
   margin: auto;
+  -webkit-flex: 1;
   flex: 1;
   border-radius: 4px;
   box-sizing: border-box;

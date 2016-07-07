@@ -16,20 +16,20 @@ html, body, #app
 
 #app
   min-width: 650px
-  display: flex
-  flex-direction: column
+  @include display-flex
+  @include flex-direction(column)
   position: absolute
   background: $color-background-light-3
   top: 0
   left: 0
 
 #content-box-wrapper
-  display: flex
-  flex-direction: column
+  @include display-flex
+  @include flex-direction(column)
+  @include flex(1)
   padding: 18px 0
   width: 100%
   overflow: hidden
-  flex: 1
 
 #content-box
   background: $color-background-light-0
@@ -38,7 +38,7 @@ html, body, #app
   width: 100%
   max-width: $dimen-width-content
   margin: auto
-  flex: 1
+  @include flex(1)
   border-radius: $dimen-border-radius
   @include box-sizing(border-box)
 
