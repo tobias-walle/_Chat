@@ -15,6 +15,7 @@
   position: fixed;
   background: white;
   max-height: 80%;
+  min-height: 400px;
   margin: 1em;
   top: 50%;
   left: 50%;
@@ -38,9 +39,13 @@
   overflow: hidden;
   height: 0; }
 
-.popup-container-wrapper, .popup-container-wrapper.active > * {
+.popup-container-wrapper.active > * {
   opacity: 1;
   height: auto; }
+
+.popup-container-wrapper.active {
+  opacity: 1;
+  height: 100%; }
 
 .popup-content {
   display: block;
