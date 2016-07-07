@@ -47,7 +47,6 @@ router.route("/")
         var chatroomId = req.body.chatroomId;
         chatroom.findByIdAndRemove(chatroomId, function(err, removed) {
             if (err) {
-                console.error(err.stack);
                 next(err);
             } else {
                 console.log("DELETE chatroom " + chatroomId);

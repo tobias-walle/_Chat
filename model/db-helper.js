@@ -21,7 +21,6 @@ function getAllChatroomsOfUser(userId, callback) {
  */
 function getMessageQueryGroupedByChatroom(userId, callback) {
     // Get all the queried messages of the user
-    console.log(userId);
     user.findOne({_id: userId}, function(err, item) {
         if (err) {
             console.error(err);

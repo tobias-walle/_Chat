@@ -11,7 +11,6 @@ router.route("/")
         dbHelper.getAllChatroomsofUser(userId,
             function (err, items) {
                 if (err) {
-                    console.error(err.stack);
                     next(err);
                 } else {
                     console.log("GET chatrooms from " + userId);
@@ -35,7 +34,6 @@ router.route("/")
         chatroom.create({ users: users },
             function (err, item) {
                 if (err) {
-                    console.log(err.stack);
                     next(err);
                 } else {
                     console.log("POST create chatroom " +  item._id);

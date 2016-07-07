@@ -14,7 +14,6 @@ router.route("/")
         var chatroomId = req.body.chatroomId;
         dbHelper.createAndSendToUsers(userId, chatroomId, body, function (err, item) {
             if (err) {
-                console.error(err.stack);
                 next(err);
             } else {
                 console.log("POST create message " + item._id);

@@ -9,7 +9,6 @@ router.route("/")
         user.find({}, { name: 1},
         function (err, item) {
             if (err) {
-                console.log(err.stack);
                 next(err);
             } else {
                 res.json(item);
@@ -63,9 +62,7 @@ router.route("/objects")
 
     // Gets a list of users ids and returns the objects
     .post(function (req, res, next) {
-        console.log(req.body);
         var userIds = req.body.userIds;
-        console.log(userIds);
         user.find({
             _id: { $in: userIds }
         }, function (err, items) {
@@ -86,7 +83,6 @@ router.route("/current")
             },
             function (err, item) {
                 if (err) {
-                    console.log(err.stack);
                     next(err);
                 } else {
                     res.json(item);

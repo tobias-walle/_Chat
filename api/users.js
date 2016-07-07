@@ -65,9 +65,7 @@ router.route("/objects")
 
     // Gets a list of users ids and returns the objects
     .post(function (req, res, next) {
-        console.log(req.body);
         var userIds = req.body.userIds;
-        console.log(userIds);
         user.find({
             _id: { $in: userIds }
         }, function (err, items) {
