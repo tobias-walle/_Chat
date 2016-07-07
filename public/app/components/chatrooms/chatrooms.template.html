@@ -16,7 +16,7 @@
         <div class="new-chatroom-dialog-controls-wrapper">
             <div class="new-chatroom-dialog-controls">
                 <button ng-click="$ctrl.toggleDialog()">Cancel</button>
-                <button ng-click="$ctrl.inviteButtonClicked(users)">Invite</button>
+                <button ng-click="$ctrl.inviteButtonClicked(users)" ng-disabled="users.length == 0">Invite</button>
             </div>
         </div>
     </div>
